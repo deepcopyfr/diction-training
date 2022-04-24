@@ -34,7 +34,7 @@ def countdown(number_of_minutes: int) -> None:
 
 def play_sound() -> None:
     """Воспроизводит звуковое оповещение."""
-    playsound('uwu_sound.mp3')
+    playsound('ding_sound.mp3')
 
 
 def print_final_message() -> None:
