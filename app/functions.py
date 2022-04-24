@@ -1,4 +1,5 @@
 from playsound import playsound
+from openpyxl import worksheet
 
 
 def play_sound() -> None:
@@ -57,7 +58,7 @@ def print_tutorial() -> None:
     print_dashes()
 
 
-def convert_from_excel_to_dict(sheet_with_patters) -> dict:
+def convert_from_excel_to_dict(sheet_with_patters: worksheet) -> dict:
     """Перевод данных из Excel в словарь Python.
 
     Args:
