@@ -1,8 +1,8 @@
 from time import sleep
-from playsound import playsound
 
 from random import randint
 
+import models
 import openpyxl
 import threading
 
@@ -27,79 +27,22 @@ def countdown(number_of_minutes: int) -> None:
         number_of_seconds -= 1
         sleep(1)
 
-    play_sound()
-    print_dashes(1, 0)
-    print_final_message()
-
-
-def play_sound() -> None:
-    """Воспроизводит звуковое оповещение."""
-    playsound('ding_sound.mp3')
-
-
-def print_final_message() -> None:
-    """Печатает сообщение об окончании времени."""
-    print('\nВремя закончилось!')
-
-
-def print_dashes(empty_lines_before: int = 1,
-                 empty_lines_after: int = 1) -> None:
-    """Печатает знаки тире (---).
-
-    В зависимости от введённых аргументов функция имеет возможность
-    добавить пустые строки между знаками тире.
-
-    Args:
-        empty_lines_before(int): Пустые строки до печати тире.
-        empty_lines_after(int): Пустые строки после печати тире.
-
-    Returns: None
-    """
-    if empty_lines_before < 0 or empty_lines_after < 0:
-        raise ValueError("Строки 'до' и 'после' должны быть >= 0!")
-
-    elif empty_lines_before and empty_lines_after:
-        print()
-        print('-' * 115)
-        print()
-
-    elif empty_lines_before == 1 and empty_lines_after == 0:
-        print()
-        print('-' * 115)
-
-    elif empty_lines_before == 0 and empty_lines_after == 1:
-        print('-' * 115)
-        print()
-
-    elif empty_lines_before == 0 and empty_lines_after == 0:
-        print('-' * 115)
+    models.play_sound()
+    models.print_dashes(1, 0)
+    models.print_final_message()
 
 
 # Получение данных из книги Excel.
 book = openpyxl.load_workbook('patters.xlsx')
 sheet = book.active
 
+# Переносим скороговорки из листа Excel в словарь Python.
+patters = models.convert_from_excel_to_dict(sheet)
 
-# Запись данных из Excel в словарь Python.
-patters = dict()
-for row in range(1, sheet.max_row):
-    # Заполнение словаря скороговорками из листа.
-    patters[row] = sheet[row + 1][1].value.splitlines()
+# Вывод руководства к программе.
+models.print_tutorial()
 
-
-# Вывод руководства по использованию программы.
-tutorial = """\n\t\tРуководство к программе\n
-\tДанная программа предназначена для тренировки дикции.\n
-\tВ самом начале укажите время, необходимое для прохождения тренировки.\n
-\tЗатем после прочтения скороговорки нажмите клавишу <Enter>, чтобы
-перейти к следующей скороговорке.\n
-\tПо окончании тренировки вы услышите звук оповещения и увидите, сколько
-скороговорок вы успели прочитать за введённое вами время."""
-print(tutorial)
-print_dashes()
-
-
-# Ввод времени.
+# Проверка на "дурака" при вводе времени.
 while True:
     try:
         numberOfMinutes = int(input('Введите время (в минутах): '))
@@ -107,8 +50,7 @@ while True:
     except ValueError:
         print('\nВы ввели не целочисленное значение!\n')
 
-print_dashes()
-
+models.print_dashes()
 
 # Запуск фонового таймера.
 countdown_thread = threading.Thread(target=countdown, args=(numberOfMinutes,))
@@ -144,10 +86,10 @@ while number_of_seconds > 0:
 
         # Любой ввод, чтобы понять, что чтение текущей скороговорки окончено.
         anyInput = input()
-        print_dashes(0, 1)
+        models.print_dashes(0, 1)
 
         if number_of_seconds == 0:
             break
 
 print(f'Количество прочитанных скороговорок: {countPatters}')
-print_dashes(1, 0)
+models.print_dashes(1, 0)
