@@ -2,7 +2,7 @@ from time import sleep
 
 from random import randint
 
-import models
+import functions
 import openpyxl
 import threading
 
@@ -27,9 +27,9 @@ def countdown(number_of_minutes: int) -> None:
         number_of_seconds -= 1
         sleep(1)
 
-    models.play_sound()
-    models.print_dashes(1, 0)
-    models.print_final_message()
+    functions.play_sound()
+    functions.print_dashes(1, 0)
+    functions.print_final_message()
 
 
 # Получение данных из книги Excel.
@@ -37,10 +37,10 @@ book = openpyxl.load_workbook('patters.xlsx')
 sheet = book.active
 
 # Переносим скороговорки из листа Excel в словарь Python.
-patters = models.convert_from_excel_to_dict(sheet)
+patters = functions.convert_from_excel_to_dict(sheet)
 
 # Вывод руководства к программе.
-models.print_tutorial()
+functions.print_tutorial()
 
 # Проверка на "дурака" при вводе времени.
 while True:
@@ -50,7 +50,7 @@ while True:
     except ValueError:
         print('\nВы ввели не целочисленное значение!\n')
 
-models.print_dashes()
+functions.print_dashes()
 
 # Запуск фонового таймера.
 countdown_thread = threading.Thread(target=countdown, args=(numberOfMinutes,))
@@ -86,10 +86,10 @@ while number_of_seconds > 0:
 
         # Любой ввод, чтобы понять, что чтение текущей скороговорки окончено.
         anyInput = input()
-        models.print_dashes(0, 1)
+        functions.print_dashes(0, 1)
 
         if number_of_seconds == 0:
             break
 
 print(f'Количество прочитанных скороговорок: {countPatters}')
-models.print_dashes(1, 0)
+functions.print_dashes(1, 0)
