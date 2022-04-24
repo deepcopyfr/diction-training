@@ -15,12 +15,25 @@
 
 `$ git clone git@github.com:deepcopyfr/diction-training.git`
 
-2. Скачайте необходимые модули
+2. Перейдите в каталог
 
-`$ pip install openpyxl` - запись/чтение в Excel-документе </br>
-`$ pip install playsound` - воспроизведение звукового оповещения
+`cd dictiong-training`
 
-3. Запустите **app.py**
+3. Создайте виртаульное окружение и активируйте его
+
+```
+$ python3 -m venv env
+$ source venv/bin/activate
+```
+
+4. Установите зависимости
+
+```
+pip install -U pip
+pip install -r requirements.txt
+```
+
+5. Запустите **app.py**
 
 
 ### Использование
