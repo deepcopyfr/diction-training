@@ -27,17 +27,17 @@
 
 В самом начале укажите время, необходимое для прохождения тренировки. </br>
 
-![](../README files/input_time.gif)
+![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/input_time.gif)
 
 Затем после прочтения скороговорки нажмите клавишу `Enter`, чтобы
 перейти к следующей скороговорке. <br>
 
-![](print_patters.gif)
+![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/print_message.gif)
 
 По окончании тренировки вы услышите звук оповещения и увидите, сколько
 скороговорок вы успели прочитать за введённое вами время. </br>
 
-![](../README files/print_message.gif)
+![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/print_patters.gif)
 
 
 ### Добавление новых скороговорок
@@ -48,7 +48,7 @@
 4. столбец "N" растянуть до последней скороговорки, чтобы установить нумерацию
 5. для читабельности установите высоту каждой новой строки 2.0.
 
-![](../README files/work_with_excel_file.gif)
+![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/work_with_excel_file.gif)
 
 Если скороговорка состоит из нескольких строк (как стих), вставьте её </br>
 отдельно, предварительно нажав на нужную ячейку клавишу `F2`.
