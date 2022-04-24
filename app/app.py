@@ -22,9 +22,9 @@ def countdown(number_of_minutes: int) -> None:
     Returns: None
     """
     global number_of_seconds
-    number_of_seconds = number_of_minutes * 10
+    number_of_seconds = number_of_minutes * 60
     while number_of_seconds:
-        number_of_seconds = number_of_seconds - 1
+        number_of_seconds -= 1
         sleep(1)
 
     play_sound()
