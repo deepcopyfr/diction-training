@@ -45,7 +45,6 @@ pip install -r requirements.txt
 Затем после прочтения скороговорки нажмите клавишу `Enter`, чтобы
 перейти к следующей скороговорке. <br>
 
-![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/print_message.gif)
 ![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/print_patters.gif)
 
 По окончании тренировки вы услышите звук оповещения и увидите, сколько
