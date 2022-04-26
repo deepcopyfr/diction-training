@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 В самом начале укажите время, необходимое для прохождения тренировки. </br>
 
-![](https://giphy.com/gifs/Qpl6Pc5TF6AqkbkeLR)
+![](https://giphy.com/gifs/Qpl6Pc5TF6AqkbkeLR/fullscreen)
 
 Затем после прочтения скороговорки нажмите клавишу `Enter`, чтобы
 перейти к следующей скороговорке. <br>
