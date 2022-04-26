@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 В самом начале укажите время, необходимое для прохождения тренировки. </br>
 
-![](https://pasteboard.co/h8MXIQNA6z8j.gif)
+![](https://github.com/deepcopyfr/diction-training/blob/master/GIFs/input_time.gif)
 
 Затем после прочтения скороговорки нажмите клавишу `Enter`, чтобы
 перейти к следующей скороговорке. <br>
